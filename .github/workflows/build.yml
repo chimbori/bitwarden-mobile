@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Set up CLOC
         run: |
@@ -36,7 +36,7 @@ jobs:
       hotfix_branch_exists: ${{ steps.branch-check.outputs.hotfix_branch_exists }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           submodules: 'true'
 
@@ -110,7 +110,7 @@ jobs:
           echo "GitHub event: $GITHUB_EVENT"
 
       - name: Checkout repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           fetch-depth: 0
       - name: Decrypt secrets
@@ -237,7 +237,7 @@ jobs:
         shell: pwsh
       - name: Upload Prod .aab artifact
         if: ${{ matrix.variant == 'prod' }}
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: com.x8bit.bitwarden.aab
           path: ./com.x8bit.bitwarden.aab
@@ -245,7 +245,7 @@ jobs:
 
       - name: Upload Prod .apk artifact
         if: ${{ matrix.variant == 'prod' }}
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: com.x8bit.bitwarden.apk
           path: ./com.x8bit.bitwarden.apk
@@ -253,7 +253,7 @@ jobs:
 
       - name: Upload Other .apk artifact
         if: ${{ matrix.variant != 'prod' }}
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: com.x8bit.bitwarden.${{ matrix.variant }}.apk
           path: ./com.x8bit.bitwarden.${{ matrix.variant }}.apk
@@ -273,7 +273,7 @@ jobs:
 
       - name: Upload .apk sha file for prod
         if: ${{ matrix.variant == 'prod' }}
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: bw-android-apk-sha256.txt
           path: ./bw-android-apk-sha256.txt
@@ -281,7 +281,7 @@ jobs:
 
       - name: Upload .apk sha file for other
         if: ${{ matrix.variant != 'prod' }}
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: bw-android-${{ matrix.variant }}-apk-sha256.txt
           path: ./bw-android-${{ matrix.variant }}-apk-sha256.txt
@@ -347,7 +347,7 @@ jobs:
           echo "GitHub event: $GITHUB_EVENT"
 
       - name: Checkout repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Decrypt secrets
         env:
@@ -482,7 +482,7 @@ jobs:
         shell: pwsh
 
       - name: Upload F-Droid .apk artifact
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: com.x8bit.bitwarden-fdroid.apk
           path: ./com.x8bit.bitwarden-fdroid.apk
@@ -494,7 +494,7 @@ jobs:
             -t sha256 | Out-File -Encoding ASCII ./bw-fdroid-apk-sha256.txt
 
       - name: Upload F-Droid sha file
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: bw-fdroid-apk-sha256.txt
           path: ./bw-fdroid-apk-sha256.txt
@@ -520,12 +520,12 @@ jobs:
           echo "GitHub event: $GITHUB_EVENT"
 
       - name: Checkout repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           submodules: 'true'
 
       - name: Login to Azure - CI Subscription
-        uses: Azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf # v1.4.3
+        uses: Azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # v1.4.7
         with:
           creds: ${{ secrets.AZURE_KV_CI_SERVICE_PRINCIPAL }}
 
@@ -703,7 +703,7 @@ jobs:
         shell: bash
 
       - name: Upload App Store .ipa & dSYMs artifacts
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: Bitwarden iOS
           path: |
@@ -776,10 +776,10 @@ jobs:
       _CROWDIN_PROJECT_ID: "269690"
     steps:
       - name: Checkout repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Login to Azure - CI Subscription
-        uses: Azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf # v1.4.3
+        uses: Azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # v1.4.7
         with:
           creds: ${{ secrets.AZURE_KV_CI_SERVICE_PRINCIPAL }}
 
@@ -798,7 +798,7 @@ jobs:
           done
 
       - name: Upload Sources
-        uses: crowdin/github-action@965d501f160af7b1f88aed4c29154b0caf1e94b9 # v1.9.0
+        uses: crowdin/github-action@ecdf564895766b8a6b4b581559b3c6cd955467d1 # v1.12.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_API_TOKEN: ${{ steps.retrieve-secrets.outputs.crowdin-api-token }}
@@ -845,7 +845,7 @@ jobs:
           fi
 
       - name: Login to Azure - CI Subscription
-        uses: Azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf # v1.4.3
+        uses: Azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # v1.4.7
         if: failure()
         with:
           creds: ${{ secrets.AZURE_KV_CI_SERVICE_PRINCIPAL }}
