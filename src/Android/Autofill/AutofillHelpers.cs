@@ -66,6 +66,7 @@ namespace Bit.Droid.Autofill
             "com.brave.browser_default",
             "com.brave.browser_dev",
             "com.brave.browser_nightly",
+            "com.chimbori.hermitcrab",
             "com.chrome.beta",
             "com.chrome.canary",
             "com.chrome.dev",

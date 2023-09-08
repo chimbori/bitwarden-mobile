@@ -45,6 +45,7 @@ namespace Bit.Droid.Accessibility
             new Browser("com.brave.browser_default", "url_bar"),
             new Browser("com.brave.browser_dev", "url_bar"),
             new Browser("com.brave.browser_nightly", "url_bar"),
+            new Browser("com.chimbori.hermitcrab", "url_bar"),
             new Browser("com.chrome.beta", "url_bar"),
             new Browser("com.chrome.canary", "url_bar"),
             new Browser("com.chrome.dev", "url_bar"),
